@@ -70,3 +70,12 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+
+# Rubocop
+gem 'rubocop', '>= 1.0', '< 2.0'
+
+# Rspec Gem
+group :development, :test do
+  gem 'rspec-rails'
+end
