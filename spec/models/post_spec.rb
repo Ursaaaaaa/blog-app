@@ -16,7 +16,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'Post counter must be greater or equal to zero' do
-    subject.likes_counter = -1
+    subject.likesCounter = -1
     expect(subject).to_not be_valid
   end
   it 'loads only the most recent 5 comments' do

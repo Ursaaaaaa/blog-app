@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'Post counter must be greater or equal to zero' do
-    subject.posts_counter = -1
+    subject.postsCounter = -1
     expect(subject).to_not be_valid
   end
 end
