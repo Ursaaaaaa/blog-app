@@ -71,7 +71,6 @@ group :test do
   gem 'webdrivers'
 end
 
-
 # Rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
 
