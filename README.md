@@ -15,17 +15,32 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-- Make sure you already installed Ruby version 3 or higher and Git.
+  - Install ruby  - [Installation guides](https://www.ruby-lang.org/en/documentation/installation/)
+  - install PostgreSQL - [Installation guides](https://www.postgresql.org/download/linux/)
+  - install libpqdev ``` sudo apt install libpq-dev  ``` for linux debian users
+  - Make sure your Postgresql is running. If not, start the service by typing ```sudo service postgresql start``` in your terminal (for linux debian users)
 
 ### Setup
 
-Clone the repository using the below commands.
+ ```git clone``` this [repo](https://github.com/ramrod433/blog-app)
+  - Run:
+    - ```cd blog-app```
+    - ```bundle install```
+  
+* Database creation
+  - Run
+       - ```rake db:create```
 
-- `git clone git@github.com:ramrod433/blog-app.git `
-- `cd blog-app`
-- Make sure to create a database and add it's configuration into the `cofig/database.yml`
-- `rails db:migrate`
-- `rails server`
+* Tests
+  - Run (*ensure your postgreSQL is running as well*)
+      - Integrations
+        - **Method 1:** ```bundle exec rspec test/integration/ ```
+        > if fails, try
+        - **Method 2:**  ```rspec test/integration/```
+
+* Run project
+  - ```rails db:migrate:reset db:seed``` then
+  - Run ```rails s``` and visit [http://localhost:3000/](http://localhost:3000/) in your browser!
 
 ### Usage
 
