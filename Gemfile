@@ -79,5 +79,6 @@ gem 'ffi'
 
 # Rspec Gem
 group :development, :test do
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
