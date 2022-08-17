@@ -26,6 +26,6 @@ describe 'GET /users/:id' do
   end
   it 'renders the Post text' do
     get '/users/1'
-    expect(response.body).to include('howing is a list of posts for a given user')
+    expect(response.body).to include('Showing a list of posts for a given user')
   end
 end
