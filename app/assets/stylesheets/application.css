@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- .post-partial,
+.post-partial,
 .bio,
 .comments,
 .post {
