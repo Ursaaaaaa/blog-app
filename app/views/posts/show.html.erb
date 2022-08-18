@@ -1,2 +1,14 @@
-<h1>List of posts by user</h1>
+<article class="post">
+  <h3><%= @post.title %>  by <%= @post.author.name %></h3>
+  <div class="post-stats">
+    <span>Comments: <%= @post.commentsCounter %> &nbsp;,&nbsp;</span>
+    <span>Likes: <%= @post.likesCounter %></span>
+  </div>
+  <p><%= @post.text %></p>
+</article>
+<ul class="comments">
+  <% @post.recent_comments.each do |comment| %>
+    <li><%= comment.author.name %>: <%= comment.text %>
+  <% end %>
+</ul> 
 
