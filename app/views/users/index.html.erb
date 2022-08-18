@@ -1,2 +1,4 @@
-<h1>Here is a list of posts for a given user</h1>
+<% @users.each do |user| %>
+  <%= render partial: 'partials/userpartial', locals: { user: user } %>
+<% end %> 
 
