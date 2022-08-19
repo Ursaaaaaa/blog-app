@@ -1,2 +1,12 @@
-<h1>List of posts Here</h1>
+<%= render partial:'partials/userpartial', locals: {user: @user} %>
+<% @user_posts.each do |post|%>
+<%= render partial:'partials/postpartial', locals: {post: post} %>
 
+<ul class="comments">
+      <% post.recent_comments.each do |comment| %>
+        <li><%= comment.author.name %>: <%= comment.text %>
+      <% end %>
+      </ul>
+<% end %>
+
+<button class="see-all">Pagination</button> 
