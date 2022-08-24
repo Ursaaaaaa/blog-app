@@ -17,7 +17,7 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template('index')
     end
   end
-  
+
   describe 'GET #show' do
     before(:example) { get user_post_path(@user_first, @post_first) }
     it 'is a success' do
