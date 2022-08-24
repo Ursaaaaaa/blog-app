@@ -80,6 +80,9 @@ gem 'bullet'
 # FFi
 gem 'ffi'
 
+#Devise
+gem 'devise'
+
 # Rspec Gem
 group :development, :test do
   gem 'rails-controller-testing'
