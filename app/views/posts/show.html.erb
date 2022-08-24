@@ -1,7 +1,7 @@
 <article class="post">
   <h3><%= @post.title %>  by <%= link_to @post.author.name, user_path(@post.author_id) %></h3>
   <div class="post-stats">
-    <span>Comments: <%= @post.commentCounter %> &nbsp;,&nbsp;</span>
+    <span>Comments: <%= @post.commentsCounter %> &nbsp;,&nbsp;</span>
     <span>Likes: <%= @post.likesCounter %></span>
   </div>
   <p><%= @post.text %></p>
