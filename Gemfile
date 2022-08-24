@@ -77,9 +77,6 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 # n+1
 gem 'bullet'
 
-# capybara
-gem 'capybara'
-
 # FFi
 gem 'ffi'
 
