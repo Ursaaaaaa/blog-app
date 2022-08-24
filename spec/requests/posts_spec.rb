@@ -1,31 +1,35 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts', type: :request
-describe 'GET /users/:id/posts' do
-  it 'returns http success' do
-    get '/users/1/posts'
-    expect(response).to have_http_status(:success)
+RSpec.describe 'Posts', type: :request do
+  before :each do
+    @user_first = User.create(name: 'Grabrielle', photo: 'Avatar.webp', bio: 'A cute baby', postsCounter: 0)
+
+    @post_first = @user_first.posts.create(title: 'Love must lead', text: 'This is my first post', commentsCounter: 0,
+                                           likesCounter: 0)
   end
-  it 'renders the index template' do
-    get '/users/1/posts'
-    expect(response).to render_template('index')
+  describe 'GET #index' do
+    before(:example) { get user_posts_path(@user_first) }
+    it 'is a success' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "renders 'index' template" do
+      expect(response).to render_template('index')
+    end
   end
-  it 'renders the Post text' do
-    get '/users/1/posts'
-    expect(response.body).to include('List of posts Here')
-  end
-end
-describe 'GET /users/:id/posts/:id' do
-  it 'returns http success' do
-    get '/users/1/posts/1'
-    expect(response).to have_http_status(:success)
-  end
-  it 'renders the show template' do
-    get '/users/1/posts/1'
-    expect(response).to render_template('show')
-  end
-  it 'renders the Post text' do
-    get '/users/1/posts/1'
-    expect(response.body).to include('List of posts by user')
+
+  describe 'GET #show' do
+    before(:example) { get user_post_path(@user_first, @post_first) }
+    it 'is a success' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "renders 'show' template" do
+      expect(response).to render_template('show')
+    end
+
+    it 'should include post body on the screen' do
+      expect(response.body).to include('This is my first post')
+    end
   end
 end
