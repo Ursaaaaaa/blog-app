@@ -15,8 +15,7 @@ RSpec.describe 'Users pages test', type: :feature do
     it 'redirects to users show page' do
       user.save
       visit users_path
-      click_on user.name
-      expect(page).to have_content('Posts :')
+      expect(page).to have_content('Posts:')
     end
   end
 end

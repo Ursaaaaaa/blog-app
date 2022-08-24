@@ -1,31 +1,34 @@
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request
-describe 'GET /' do
-  it 'returns http success' do
-    get '/users'
-    expect(response).to have_http_status(:success)
+RSpec.describe 'Users', type: :request do
+  describe 'GET #index' do
+    before(:example) { get users_path } # get(:index)
+    it 'is a success' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "renders 'index' template" do
+      expect(response).to render_template('index')
+    end
+
+    it 'should include "Here is a list of users" on the screen' do
+      expect(response.body).to include('BlogApp')
+    end
   end
-  it 'renders the index template' do
-    get '/users'
-    expect(response).to render_template('index')
-  end
-  it 'renders the Post text' do
-    get '/users'
-    expect(response.body).to include('Here is a list of posts for a given user')
-  end
-end
-describe 'GET /users/:id' do
-  it 'returns http success' do
-    get '/users/1'
-    expect(response).to have_http_status(:success)
-  end
-  it 'renders the show template' do
-    get '/users/1'
-    expect(response).to render_template('show')
-  end
-  it 'renders the Post text' do
-    get '/users/1'
-    expect(response.body).to include('Showing a list of posts for a given user')
+
+  describe 'GET #show' do
+    user = User.create(name: 'Grabrielle', photo: 'Avatar.webp', bio: 'A beautiful baby', postsCounter: 0)
+    before(:each) { get user_path id: user.id }
+    it 'is a success' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "renders 'show' template" do
+      expect(response).to render_template('show')
+    end
+
+    it 'should include "Bio:" on the screen' do
+      expect(response.body).to include('Bio')
+    end
   end
 end
