@@ -80,7 +80,7 @@ gem 'bullet'
 # FFi
 gem 'ffi'
 
-#Devise
+# Devise
 gem 'devise'
 
 # Rspec Gem
