@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+h1 {
+  text-align: center;
+}
+
 .post-partial,
 .bio,
 .comments,
@@ -94,4 +99,40 @@ a {
 
 .new_comment input {
   width: fit-content;
+}
+
+.btn_signout_from {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+}
+
+h2 {
+  text-align: center;
+}
+
+.post_form_element {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 35%;
+  gap: 3%;
+}
+
+.input_from {
+  margin: 5px 0;
+}
+
+.btn_submit_from {
+  width: 30%;
+}
+
+.other_links {
+  width: 30%;
+  margin: 0 35%;
 }

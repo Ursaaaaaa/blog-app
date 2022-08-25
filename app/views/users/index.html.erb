@@ -1,4 +1,6 @@
+<% if user_signed_in? %>
 <% @users.each do |user| %>
   <%= render partial: 'partials/userpartial', locals: { user: user } %>
+<% end %> 
 <% end %> 
 
