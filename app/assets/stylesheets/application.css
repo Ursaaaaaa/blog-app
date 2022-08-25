@@ -14,9 +14,9 @@
  *= require_self
  */
 
- h1 {
-text-align: center;
- }
+h1 {
+  text-align: center;
+}
 
 .post-partial,
 .bio,
@@ -134,5 +134,5 @@ h2 {
 
 .other_links {
   width: 30%;
-  margin: 0 35%; 
+  margin: 0 35%;
 }
