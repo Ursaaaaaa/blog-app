@@ -77,6 +77,9 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 # n+1
 gem 'bullet'
 
+#cancan
+gem 'cancancan'
+
 # FFi
 gem 'ffi'
 
