@@ -2,10 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   # rubocop:disable Style/SymbolArray
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :posts, only: [:new, :create, :update, :destroy] do
-    resources :comments
-    resources :likes
-  end
+  resources :comments, only: [:new, :create, :destroy]
+  resources :likes, only: [:create]
   # Defines the root path route ("/")
   # root "articles#index"
   resources :users, only: [:index, :show] do
