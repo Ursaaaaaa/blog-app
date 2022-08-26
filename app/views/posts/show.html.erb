@@ -15,12 +15,10 @@
 
 <ul class="comments">
   <% @post.recent_comments.each do |comment| %>
-    <li>class="user_comment_element">
-          <%= comment.author.name%>: <%= comment.text%>
-          <% if can? :destroy, comment %>
-            <%= button_to "Delete Comment", post_comment_path(post_id: @post.id, comment_id: comment.id), method: :delete, class: "btn_delete_comment"  %>
-          <% end %> 
-    </li>
+    <li><%= comment.author.name %>: <%= comment.text %></li>
+    <% if can? :destroy, comment %>
+            <%= button_to "Delete Comment", post_comment_path(post_id: @post.id, comment_id: comment.id), method: :delete, data: { turbo: false }, class: "btn_delete_comment"  %>
+    <% end %>
   <% end %>
 </ul> 
 
