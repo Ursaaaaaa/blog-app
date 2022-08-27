@@ -18,7 +18,7 @@ class Post < ApplicationRecord
     comments.limit(5).order(created_at: :desc)
   end
 
-  def as_json(options={})
-    { :id => self.id, :title => self.title, :text => self.text, }
+  def as_json(_options = {})
+    { id:, title:, text: }
   end
 end
