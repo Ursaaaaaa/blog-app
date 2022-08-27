@@ -83,6 +83,11 @@ gem 'cancancan'
 # FFi
 gem 'ffi'
 
+#API
+gem 'jwt'
+
+gem 'rswag'
+
 # Devise
 gem 'devise'
 
