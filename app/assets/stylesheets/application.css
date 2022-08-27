@@ -136,3 +136,37 @@ h2 {
   width: 30%;
   margin: 0 35%;
 }
+
+.btn_delete {
+  display: flex;
+  justify-content: right;
+}
+
+.btn_delete_post {
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+}
+
+.user_comment_element {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn_delete_comment {
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+}

@@ -1,17 +1,32 @@
 <article class="post">
   <h3><%= @post.title %>  by <%= link_to @post.author.name, user_path(@post.author_id) %></h3>
   <div class="post-stats">
-    <span>Comments: <%= @post.commentsCounter %> &nbsp;,&nbsp;</span>
-    <span>Likes: <%= @post.likesCounter %></span>
+    <span>
+      <h4><span>Comment <%= @post.commentsCounter %></span> <span>|</span> <span>Likes <%= @post.likesCounter %></span></h4>
+      <% if can? :destroy, @post %>
+        <div class="btn_delete">
+         <%= button_to "Delete", user_post_path(post_id: @post.id), method: :delete, data: {turbo: false} class: "btn_delete_post"  %>
+        </div>
+      <% end %>
+    </span>
   </div>
   <p><%= @post.text %></p>
 </article>
 
 <ul class="comments">
-  <% @post.recent_comments.each do |comment| %>
-    <li><%= comment.author.name %>: <%= comment.text %>
-  <% end %>
-</ul> 
+<% @post.recent_comments.each do |comment| %>
+    <li>
+      <%= comment.author.name %>: <%= comment.text %>
+      <br>
+      <% if can? :destroy, comment %>
+        <%= button_to "Delete Comment", comment_path(id: comment.id), method: :delete, data: {
+          turbo: false
+        }, class: "btn_delete_comment" %>
+      <% end %>
+    </li>
+    <% end %>
+</ul>
+
 
 <%= form_for @like, url:likes_path do |f|%>
   <%= f.hidden_field :author_id, value: @post.author.id %>
